@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: kundenverwaltung
+spec:
+  rules:
+    - host: 'kundenverwaltung.officialmkl.cloud.okteto.net'
+      http:
+        paths:
+          - path: '/'
+            backend:
+              serviceName: kundenverwaltung
+              servicePort: 8080

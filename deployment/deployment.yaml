@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kundenverwaltung
+  labels:
+    app.kubernetes.io/name: kundenverwaltung
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: kundenverwaltung
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: kundenverwaltung
+    spec:
+      containers:
+        - name: kundenverwaltung
+          image: officialmkl/kundenverwaltung:latest
+          ports:
+            - containerPort: 3000
